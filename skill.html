@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Skill</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="header">
+            <a href="beranda.html" class="logo">My Profil.</a>
+            <nav class="navbar">
+                <a href="beranda.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="education.html">Education</a>
+                <a href="#" class="active">Contact</a>
+            </nav>
+        </header>
+        <section class="skill">
+            <h2 class="heading">Skill Me</h2>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    
+            <canvas id="myChart" class="ukuran-grafik"></canvas>
+            <script>
+                // Data dinamis
+                var labels = ['Label 1', 'Label 2', 'Label 3','Label 4'];
+                var data = [12, 19, 3];
+            
+                // Ambil referensi ke elemen canvas
+                var ctx = document.getElementById('myChart').getContext('2d');
+            
+                // Inisialisasi grafik
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Data Grafik',
+                            data: data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            
+                // Fungsi untuk menambahkan data dinamis
+                function tambahData() {
+                    var newData = Math.floor(Math.random() * 20) + 1; // Angka acak antara 1 dan 20
+                    labels.push('Label ' + (labels.length + 1));
+                    data.push(newData);
+            
+                    // Perbarui data grafik
+                    myChart.data.labels = labels;
+                    myChart.data.datasets[0].data = data;
+            
+                    // Perbarui grafik
+                    myChart.update();
+                }
+                var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            // ... (data grafik)
+        },
+        options: {
+            // ... (opsi grafik)
+        }
+    });
+            </script>
+        </section>
+        <footer>
+            <p>&copy; 2023 Nail Ghazali. Hak Cipta Dilindungi.</p>
+        </footer>
+    </body>
+</html>
